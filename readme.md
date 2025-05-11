@@ -1,51 +1,80 @@
-# CarEgo
+# CarEgo Script
 
-CarEgo is a FiveM script designed to enhance the driving experience in GTA V by adding advanced vehicle features such as a rear-view camera and parking sensors. This script is highly configurable and supports custom vehicle configurations.
+## Beschreibung
+Das **CarEgo Script** bietet ein immersives Spielerlebnis, indem es Spieler automatisch in die Egoperspektive (First-Person-Ansicht) versetzt, sobald sie ein Fahrzeug betreten. Zusätzlich integriert es eine Rückfahrkamera mit dynamischen Abständen und akustischen Warnsignalen, um das Fahren und Parken realistischer zu gestalten.
 
-## Features
+---
 
-- **Rear-View Camera**: Activate a dynamic rear-view camera with a realistic helicopter camera effect.
-- **Parking Sensors**: Detect nearby objects and display the distance in real-time, with audio feedback for proximity.
-- **Configurable Vehicles**: Define specific vehicles and their camera offsets in the configuration file.
-- **First-Person Driving**: Automatically switches to first-person view when entering a vehicle.
+## Hauptfeature
+
+### **Automatischer Wechsel in die Egoperspektive**
+- Sobald der Spieler ein Fahrzeug betritt, wird die Kamera automatisch in die Egoperspektive (First-Person-Ansicht) umgeschaltet.
+- Dieses Feature sorgt für ein intensiveres und realistischeres Fahrerlebnis.
+
+---
+
+## Zusätzliche Features
+
+### 1. **Rückfahrkamera**
+- Aktivierung der Rückfahrkamera durch Drücken der **C-Taste** (Standard).
+- Dynamische Kameraansicht, die sich basierend auf den Fahrzeugdimensionen anpasst.
+- Realistische Rückansicht mit einem speziellen Kamerafilter (Helikopter-Kameraeffekt).
+
+### 2. **Abstandssensor**
+- Zeigt die Entfernung zu Objekten hinter dem Fahrzeug in Echtzeit an.
+- Unterstützt die Erkennung von Objekten mit und ohne Physik.
+- Farbige und dynamische Anzeige der Entfernung im Overlay.
+
+### 3. **Akustische Warnsignale**
+- Warnt den Spieler mit Pieptönen, wenn sich das Fahrzeug Objekten nähert.
+- Die Frequenz der Pieptöne erhöht sich, je näher das Fahrzeug einem Hindernis kommt.
+
+### 4. **Fahrzeugspezifische Konfiguration**
+- Unterstützt nur bestimmte Fahrzeuge, die in der Konfigurationsdatei definiert sind.
+- Jedes Fahrzeug hat einen individuellen Offset für die Rückfahrkamera, um die Position der Kamera zu optimieren.
+
+### 5. **Overlay-Anzeige**
+- Ein visuelles Overlay zeigt an, wenn die Rückfahrkamera aktiv ist.
+- Echtzeit-Updates der Entfernung zu Hindernissen.
+- Automatische Ein- und Ausblendung des Overlays basierend auf der Kameranutzung.
+
+---
+
+## Unterstützte Fahrzeuge
+Das Script unterstützt nur bestimmte Fahrzeuge, die in der Konfigurationsdatei `config.lua` definiert sind. Beispiele:
+- **Benson**
+- **Biff**
+- **Hauler**
+- **Mule**
+- **Packer**
+- **Phantom**
+- **Pounder**
+- **Stockade**
+- **Terbyte**
+
+---
+
+## Steuerung
+- **C-Taste gedrückt halten**: Rückfahrkamera aktivieren.
+- **C-Taste loslassen**: Rückfahrkamera deaktivieren.
+
+---
 
 ## Installation
+1. Kopiere den Ordner `CarEgo Script` in deinen GTA 5 Server-Ordner.
+2. Stelle sicher, dass die Datei `fxmanifest.lua` korrekt eingebunden ist.
+3. Starte den Server und genieße die neuen Features!
 
-1. Clone or download this repository into your FiveM server's `resources` folder.
-2. Ensure the script is named `CarEgo` in the `resources` folder.
-3. Add `start CarEgo` to your server's `server.cfg`.
+---
 
-## Configuration
+## Hinweise
+- Die Egoperspektive wird nur in unterstützten Fahrzeugen erzwungen.
+- Die Rückfahrkamera funktioniert nur bei den in der Konfiguration definierten Fahrzeugen.
+- Der Abstandssensor kann in der Konfigurationsdatei deaktiviert werden, falls gewünscht.
 
-The script reads its configuration from the `_resource.lua` file. You can define:
-- **Allowed Vehicles**: Specify which vehicles support the rear-view camera and their respective offsets.
-- **Parking Sensor Toggle**: Enable or disable the parking sensor feature.
+---
 
-Example configuration:
-```lua
-allowedVehiclesConfig = {
-    vehicles = {
-        { model = "adder", offset = 0.5 },
-        { model = "zentorno", offset = 0.7 }
-    },
-    enableParkingSensor = true
-}
-```
-
-## Usage
-
-- **Rear-View Camera**: Press and hold the `C` key while in a configured vehicle to activate the rear-view camera. Release the `C` key to deactivate it.
-- **Parking Sensors**: Automatically active when the rear-view camera is enabled, providing distance feedback and beeping sounds.
-
-## Dependencies
-
-- FiveM server
-- GTA V
-
-## Contributing
-
-Feel free to submit issues or pull requests to improve the script. Contributions are welcome!
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+## Autor
+**DorAqua**  
+Version: 1.0.0  
+Beschreibung: Advanced Egoview in GTA 5
