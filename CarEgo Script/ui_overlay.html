@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Camera Overlay</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.5);
+            display: none; /* Hidden by default */
+        }
+        .overlay {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-align: center;
+        }
+        .distance {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        Reverse Camera Active
+        <div class="distance" id="distance">Calculating...</div>
+    </div>
+    <script>
+        window.addEventListener('message', (event) => {
+            if (event.data.action === 'showOverlay') {
+                document.body.style.display = 'flex';
+                document.getElementById('distance').textContent = event.data.distance || "Calculating...";
+            } else if (event.data.action === 'hideOverlay') {
+                document.body.style.display = 'none';
+            } else if (event.data.action === 'updateDistance') {
+                document.getElementById('distance').textContent = event.data.distance || "N/A";
+            }
+        });
+    </script>
+</body>
+</html>
